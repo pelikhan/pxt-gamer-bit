@@ -1,8 +1,8 @@
 /**
- * The pins used by SparkFun gamer:bit
+ * The pins used by SparkFun controller:bit (formerly known as the gamer:bit)
  */
 //%
-enum GamerBitPin {
+enum ControllerBitPin {
     //% block="P0 (D-PAD up)"
     P0 = <number>DAL.MICROBIT_ID_IO_P0,
     //% block="P1 (D-PAD left)"
@@ -22,10 +22,10 @@ enum GamerBitPin {
 }
 
 /**
- * The event raised by the SparkFun gamer:bit pins
+ * The event raised by the SparkFun controller:bit pins
  */
 //%
-enum GamerBitEvent {
+enum ControllerBitEvent {
     //% block="down"
     Down = DAL.MICROBIT_BUTTON_EVT_DOWN,
     //% block="up"
@@ -35,14 +35,14 @@ enum GamerBitEvent {
 }
 
 /**
- * Functions to operate the SparkFun gamer:bit
+ * Functions to operate the SparkFun controller:bit
  */
 //% color=#f44242 icon="\uf11b"
-namespace gamerbit {
+namespace controllerbit {
 	/**
 	 * 
 	 */
-    //% shim=gamerbit::init
+    //% shim=controllerbit::init
     function init(): void {
         return;
     }
@@ -52,22 +52,22 @@ namespace gamerbit {
 	 * @param button the pin that acts as a button
 	 */
     //% weight=89
-    //% blockId=gamerbit_ispressed block="gamer:bit %button|is pressed"
+    //% blockId=controllerbit_ispressed block="controller:bit %button|is pressed"
     //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
-    export function isPressed(button: GamerBitPin): boolean {
+    export function isPressed(button: ControllerBitPin): boolean {
         const pin = <DigitalPin><number>button;
         pins.setPull(pin, PinPullMode.PullUp);
         return pins.digitalReadPin(<DigitalPin><number>button) == 0;
     }
 
 	/**
-	 * Registers code to run when a gamer:bit event is detected.
+	 * Registers code to run when a controller:bit event is detected.
 	 */
     //% weight=90
-    //% blockId=gamerbit_onevent block="gamer:bit on %button|%event"
+    //% blockId=controllerbit_onevent block="controller:bit on %button|%event"
     //% button.fieldEditor="gridpicker" button.fieldOptions.columns=3
     //% event.fieldEditor="gridpicker" event.fieldOptions.columns=3
-    export function onEvent(button: GamerBitPin, event: GamerBitEvent, handler: Action) {
+    export function onEvent(button: ControllerBitPin, event: ControllerBitEvent, handler: Action) {
         init();
         control.onEvent(<number>button, <number>event, handler); // register handler
     }

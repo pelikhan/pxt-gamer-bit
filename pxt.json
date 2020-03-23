@@ -1,19 +1,19 @@
 {
-    "name": "gamerbit",
-    "version": "0.0.7",
-    "description": "Sparkfun gamer:bit blocks",
+    "name": "controllerbit",
+    "version": "0.0.8",
+    "description": "Sparkfun controller:bit (formerly known as gamer:bit) blocks",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "gamerbit.cpp",
-        "gamerbit.ts",
+        "controllerbit.cpp",
+        "controllerbit.ts",
         "shims.d.ts",
         "enums.d.ts",
-        "_locales/fr/gamerbit-strings.json",
-        "_locales/fr/gamerbit-jsdoc-strings.json"
+        "_locales/fr/controllerbit-strings.json",
+        "_locales/fr/controllerbit-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"

@@ -1,0 +1,17 @@
+{
+  "ControllerBitEvent.Click|block": "click",
+  "ControllerBitEvent.Down|block": "down",
+  "ControllerBitEvent.Up|block": "up",
+  "ControllerBitPin.P0|block": "P0 (D-PAD up)",
+  "ControllerBitPin.P11|block": "P11 (B button)",
+  "ControllerBitPin.P12|block": "P12 (Y button)",
+  "ControllerBitPin.P16|block": "P16 (X button)",
+  "ControllerBitPin.P1|block": "P1 (D-PAD left)",
+  "ControllerBitPin.P2|block": "P2 (D-PAD right)",
+  "ControllerBitPin.P5|block": "P5 (A button)",
+  "ControllerBitPin.P8|block": "P8 (D-PAD down)",
+  "controllerbit.isPressed|block": "controller:bit %button|is pressed",
+  "controllerbit.onEvent|block": "controller:bit on %button|%event",
+  "controllerbit|block": "controllerbit",
+  "{id:category}ControllerBit": "ControllerBit"
+}

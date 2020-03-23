@@ -1,10 +1,10 @@
-# gamer:bit
+# controller:bit
 
-![SparkFun Gamer:bit](https://raw.githubusercontent.com/sparkfun/pxt-gamer-bit/master/icon.png)  
+![SparkFun Controller:bit](https://raw.githubusercontent.com/sparkfun/pxt-controller-bit/master/icon.png)
 
-The package adds support for the **gamer:bit** add-on board from SparkFun.
+The package adds support for the **controller:bit** (formerly known as the **gamer:bit**) add-on board from SparkFun.
 
-To use this package, go to https://makecode.microbit.org, click ``Add package`` and search for **gamerbit**.
+To use this package, go to https://makecode.microbit.org, click ``Add package`` and search for **controllerbit**.
 
 ### ~ hint
 
@@ -39,7 +39,7 @@ The button pins are automatically configured as pull-up when using the package.
 Use the logical plug-in blocks to read if the button is pressed.
 
 ```blocks
-if (gamerbit.isPressed(GamerBitPin.P0)) {
+if (controllerbit.isPressed(ControllerBitPin.P0)) {
     led.plot(0, 0)
 } else {
     led.unplot(0, 0)
@@ -59,10 +59,10 @@ They can be triggered on:
 * clicked (pressed then released)
 
 ```blocks
-gamerbit.onEvent(GamerBitPin.P0, GamerBitEvent.Down, () => {
+controllerbit.onEvent(ControllerBitPin.P0, ControllerBitEvent.Down, () => {
     led.plot(0, 0)
 })
-gamerbit.onEvent(GamerBitPin.P0, GamerBitEvent.Up, () => {
+controllerbit.onEvent(ControllerBitPin.P0, ControllerBitEvent.Up, () => {
     led.unplot(0, 0)
 })
 ```
@@ -77,16 +77,16 @@ This program uses the left, right, up buttons
 and sends the servo angle over radio.
 
 ```blocks
-// gamer:bit code
-gamerbit.onEvent(GamerBitPin.P0, GamerBitEvent.Down, () => {
+// controller:bit code
+controllerbit.onEvent(ControllerBitPin.P0, ControllerBitEvent.Down, () => {
     // go straight
     radio.sendNumber(90)
 });
-gamerbit.onEvent(GamerBitPin.P1, GamerBitEvent.Down, () => {
+controllerbit.onEvent(ControllerBitPin.P1, ControllerBitEvent.Down, () => {
     // turn left
     radio.sendNumber(45)
 });
-gamerbit.onEvent(GamerBitPin.P2, GamerBitEvent.Down, () => {
+controllerbit.onEvent(ControllerBitPin.P2, ControllerBitEvent.Down, () => {
     // turn right
     radio.sendNumber(135)
 });
@@ -99,56 +99,56 @@ radio.onDataPacketReceived( ({ receivedNumber }) =>  {
 
 ### Example: Sending a packet of data over wireless
 
-The following program creates a bit field from the state of the buttons on the gamer:bit and sends it with the radio.  This is meant to be decoded with the moto:bit example to make a simple RC robot.
+The following program creates a bit field from the state of the buttons on the controller:bit and sends it with the radio.  This is meant to be decoded with the moto:bit example to make a simple RC robot.
 
 
 ```blocks
 let packet = 0
 basic.forever(() => {
     packet = 0
-    if (gamerbit.isPressed(GamerBitPin.P0)) {
+    if (controllerbit.isPressed(ControllerBitPin.P0)) {
         led.plot(1, 0)
         packet = packet + 128
     } else {
         led.unplot(1, 0)
     }
-    if (gamerbit.isPressed(GamerBitPin.P1)) {
+    if (controllerbit.isPressed(ControllerBitPin.P1)) {
         led.plot(0, 1)
         packet = packet + 64
     } else {
         led.unplot(0, 1)
     }
-    if (gamerbit.isPressed(GamerBitPin.P2)) {
+    if (controllerbit.isPressed(ControllerBitPin.P2)) {
         led.plot(2, 1)
         packet = packet + 32
     } else {
         led.unplot(2, 1)
     }
-    if (gamerbit.isPressed(GamerBitPin.P8)) {
+    if (controllerbit.isPressed(ControllerBitPin.P8)) {
         led.plot(1, 2)
         packet = packet + 16
     } else {
         led.unplot(1, 2)
     }
-    if (gamerbit.isPressed(GamerBitPin.P12)) {
+    if (controllerbit.isPressed(ControllerBitPin.P12)) {
         led.plot(3, 2)
         packet = packet + 8
     } else {
         led.unplot(3, 2)
     }
-    if (gamerbit.isPressed(GamerBitPin.P16)) {
+    if (controllerbit.isPressed(ControllerBitPin.P16)) {
         led.plot(4, 2)
         packet = packet + 4
     } else {
         led.unplot(4, 2)
     }
-    if (gamerbit.isPressed(GamerBitPin.P5)) {
+    if (controllerbit.isPressed(ControllerBitPin.P5)) {
         led.plot(3, 0)
         packet = packet + 2
     } else {
         led.unplot(3, 0)
     }
-    if (gamerbit.isPressed(GamerBitPin.P11)) {
+    if (controllerbit.isPressed(ControllerBitPin.P11)) {
         led.plot(4, 0)
         packet = packet + 1
     } else {

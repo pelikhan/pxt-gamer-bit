@@ -1,0 +1,9 @@
+{
+  "ControllerBitEvent": "The event raised by the SparkFun controller:bit pins",
+  "ControllerBitPin": "The pins used by SparkFun controller:bit",
+  "controllerbit": "Functions to operate the SparkFun controller:bit",
+  "controllerbit.isPressed": "Lancer des instructions suivant un évènement sur le controller:bit.",
+  "controllerbit.isPressed|param|button": "the pin that acts as a button",
+  "controllerbit.onEvent": "Déterminer les instructions à lancer lorsque d'un évènement donné sur le controller:bit.
+"
+}
