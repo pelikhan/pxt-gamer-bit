@@ -4,7 +4,7 @@
 //%
 enum GamerBitPin {
     //% block="P0 (D-PAD up)"
-    P0 = <number>DAL.MICROBIT_ID_IO_P0,
+    P0 = DAL.MICROBIT_ID_IO_P0,
     //% block="P1 (D-PAD left)"
     P1 = DAL.MICROBIT_ID_IO_P1,
     //% block="P2 (D-PAD right)"
@@ -39,12 +39,18 @@ enum GamerBitEvent {
  */
 //% color=#f44242 icon="\uf11b"
 namespace gamerbit {
-	/**
-	 * 
-	 */
-    //% shim=gamerbit::init
-    function init(): void {
-        return;
+    let initialized = false;
+
+    function init() {
+        if (initialized) return;
+
+        pins.pushButton(DigitalPin.P0)
+        pins.pushButton(DigitalPin.P1)
+        pins.pushButton(DigitalPin.P2)
+        pins.pushButton(DigitalPin.P8)
+        pins.pushButton(DigitalPin.P12)
+        pins.pushButton(DigitalPin.P16)
+        initialized = true;
     }
 
 	/**
